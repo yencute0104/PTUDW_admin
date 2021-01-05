@@ -20,6 +20,7 @@
           <div class="table-responsive">
             <table id="mytable" class="table table-bordred table-striped">
               <thead>
+                   <th>STT</th>
                   <th>Tên sách</th>
                   <th>Tác giả</th>
                   <th>Thể loại</th>
@@ -30,6 +31,7 @@
               <tbody>
                 {{#each books}}
                   <tr>
+                    <td>{{@key}}</td>
                   <td>{{title}}</td>
                   <td>{{author}}</td>
                   <td>{{catogory}}</td>

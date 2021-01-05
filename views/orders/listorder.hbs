@@ -48,6 +48,7 @@
           <div class="table-responsive">
             <table id="mytable" class="table table-bordred table-striped ">
               <thead>
+                 <th>STT</th>
                   <th>Tên người mua</th>
                   <th>Username</th>
                   <th>Số điện thoại</th>
@@ -58,6 +59,7 @@
               <tbody>
                 {{#each orders}}
                   <tr>
+                    <td>{{@key}}</td>
                   <td>{{firstName}} {{lastName}}</td>
                   <td>{{username}}</td>
                   <td>{{phone}}</td>

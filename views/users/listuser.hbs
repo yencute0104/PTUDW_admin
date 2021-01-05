@@ -34,6 +34,7 @@
           <div class="table-responsive">
             <table id="mytable" class="table table-bordred table-striped ">
               <thead>
+                 <th>STT</th>
                   <th>Username</th>
                   <th>Email</th>
                   <th>Số điện thoại</th>
@@ -43,6 +44,7 @@
               <tbody>
                 {{#each users}}
                   <tr>
+                    <td>{{@key}}</td>
                   <td>{{username}}</td>
                   <td>{{email}}</td>
                   <td>{{phone}}</td>
