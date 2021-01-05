@@ -1,0 +1,123 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div  class="row mb-2">
+            <div class="col-sm-9">
+                <h1>Chỉnh sửa thông tin sách</h1>
+            </div>
+           
+        </div>   
+        <div class="row"> </div>   
+    </div>
+</section>
+<section class="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-lg-4 col-12 form-group" >
+                                <label><b>Tên (*)</b></label>
+                                <input class="form-control" id="exampleFormControlInput1" name="txtTitle" value="{{book.title}}" required>
+                            </div>
+                            <div class="col-lg-4 col-12 form-group" >
+                                <label><b>Tác giả (*)</b></label>
+                                <input class="form-control" id="exampleFormControlInput1" name="txtAuthor" value="{{book.author}}" required>
+                            </div>
+                            <div class="col-lg-4 form-group">
+                                <label><b>Thể loại (*)</b></label>
+                                <input class="form-control " id="exampleFormControlInput1" name="txtCategory" value="{{book.catogory}}" required></input>                   
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 form-group">
+                                <label><b>Mô tả nội dung (*)</b></label>
+                                <input name="txtDescription" class="form-control" id="exampleFormControlInput1" value="{{book.descript}}" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 form-group">
+                                <label><b>Nội dung (*)</b></label>
+                                <textarea class="form-control " id="exampleFormControlInput1" name="txtDetail"required>{{book.detail}}</textarea>                   
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 form-group">
+                                <label><b>Giá bán cũ</b></label>
+                                <input class="form-control" id="exampleFormControlInput1" value="{{book.oldPrice}}" type="number" name="txtOldPrice" >
+                            </div>
+                            <div class="col-lg-4 form-group">
+                                <label><b>Giá bán (*)</b></label>
+                                <input class="form-control" id="exampleFormControlInput1" name="txtBasePrice" type="number" value="{{book.basePrice}}" required>
+                            </div>
+                            <div class="col-lg-4 form-group">
+                                <label><b>Trạng thái</b></label>
+                                <input class="form-control" id="exampleFormControlInput1" name="txtStatus"  value="{{book.status}}">
+                            </div>
+                        </div>
+
+                         <div class="row">
+                                <div class="col-lg-4 form-group">
+                                    <label><b>Số lượng trong kho (*)</b></label>
+                                    <input class="form-control" id="exampleFormControlInput1" name="txtStoreNumber" type="number" value="{{book.storeNumber}}" required>
+                                </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-lg-8 form-group">
+                                    <label><b>Link ảnh bìa sách (*)</b></label>
+                                    <input class="form-control" id="exampleFormControlInput1" name="txtImagePath" value="{{book.cover}}" >
+                                    <input name="txtImagePath" type="file" accept="image/*" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-8" >
+                                    <div class="form-group">     
+                                        <label><b>Danh sách ảnh liên quan</b></label>
+                                        <textarea class="form-control" id="exampleFormControlInput1" name="txtImageList">{{book.listCover}}</textarea>
+                                        <input name="txtImageList" type="file" accept="image/*" class="form-control-file" id="exampleFormControlFile1" multiple >
+                                    </div>
+                                </div>
+                            </div>
+
+                         <div class="row">
+                                <div class="col-lg-8">
+                                     {{#if messageImage}}
+                                        <div class="alert alert-danger">
+                                            {{messageImage}}
+                                        </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-12">
+                                <a href="/home/listbook" class="btn btn-primary">
+                                    <i class="fas fa-angle-double-left"></i>
+                                    Trở lại danh sách
+                                </a>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-12">
+                            <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-check-circle"></i> 
+                                    Lưu chỉnh sửa
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-12">
+                            <a href="/home/listbook/delete/{{book._id}}" class="btn btn-success" style="background-color: #D74424;">
+                                    <i class="fas fa-trash"></i>
+                                    Xóa
+                                </a>
+                            </div>
+                        </div>
+                    
+                    </form> 
+                </div>    
+            </div>
+        </div>
+    </div>
+</section>
+
+

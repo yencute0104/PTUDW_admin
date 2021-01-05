@@ -1,0 +1,63 @@
+<div class="hold-transition login-page">
+  <div class="login-box">
+      <div class="login-logo">
+        <a href="/"><b>Đăng  nhập</b></a>
+      </div>
+      <div class="card">
+          <div class="card-body login-card-body">
+            <p class="login-box-msg">Nhập thông tin đăng nhập để bắt đầu quản trị</p>
+
+            <form  method="post">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Username"  name="username">
+               
+              </div>
+
+
+              <div class="input-group mb-3">
+                <input type="password" class="form-control" placeholder="Password" name="password">
+               
+              </div>
+              <div class="row">
+                <div class="col">
+                  {{#if hasErr}}
+                      <div class="alert alert-danger">
+                        {{message}}
+                      </div>
+                    {{/if}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <div class="icheck-primary">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">
+                      Remember Me
+                    </label>
+                  </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                </div>
+                <!-- /.col -->
+              </div>
+            </form>
+
+            <div class="social-auth-links text-center mb-3">
+              
+            </div>
+            <!-- /.social-auth-links -->
+
+            {{!-- <p class="mb-1">
+              <a href="forgot-password.html">I forgot my password</a>
+            </p>
+            <p class="mb-0">
+              <a href="register.html" class="text-center">Register a new membership</a>
+            </p> --}}
+          </div>
+          <!-- /.login-card-body -->
+      </div>
+  </div> 
+</div>
+

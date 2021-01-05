@@ -1,0 +1,70 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div  class="row mb-2">
+            <div class="col-sm-9">
+                <h1>Thông tin người dùng</h1>
+            </div>
+           
+        </div>   
+        <div class="row"> </div>   
+    </div>
+</section>
+<section class="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                   <form enctype="multipart/form-data" method="post">
+                        <div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
+                            <div class="container pt--40 pb--55">                          
+                                <div class="d-flex  py-4 ">
+                                    <img src="{{user.profilePic}}" class="img align-items-start" id="image" width="150" height="150" name="txtProfilePic">
+                                    <div class="pl-sm-4 pl-2" id="img-section"> 
+                                        <label>Username</label> 
+                                        <input type="text" class="bg-light form-control" value="{{user.username}}"/> 
+                                        <br>
+                                        <label><b>Trạng thái: </b></label>
+                                        <input type="text" class="bg-light form-control" value="{{user.status}}"/> 
+                                        {{!-- <input class="bg-light form-control" name="txtProfilePic" value="{{user.profilePic}}"></input>  --}}
+                                    </div>
+                                </div>
+                              
+                                <div class="row py-2">
+                                    <div class="col-md-6"> <label for="firstname">Họ</label> <input type="text" name="txtFirstName" class="bg-light form-control" value="{{user.firstName}}"> </div>
+                                    <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Tên</label> <input type="text" name="txtLastName" class="bg-light form-control" value="{{user.lastName}}" > </div>
+                                </div>
+                                <div class="py-2">                               
+                                    <div class="row py-2">
+                                        <div class="col-md-6"> <label for="email">Email</label> <input type="text" name="txtEmail" class="bg-light form-control" value="{{user.email}}"> </div>
+                                        <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Số điện thoại</label> <input name="txtPhone" class="bg-light form-control" value="{{user.phone}}"> </div>
+                                    </div>
+                                
+                                    <div class="row py-2">
+                                        <div class="col-md-2 py-3">
+                                             <a class="btn border button"  href="/home/listuser/block/{{user._id}}" >Khóa tài khoản</a> 
+                                        </div>
+                                         <div class="col col-md-6  py-3">
+                                             <a class="btn border button"  href="/home/listuser/unblock/{{user._id}}" >Mở khóa tài khoản</a> 
+                                        </div>
+                                    </div>
+                                     
+                                </div>                        
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>    
+            </div>
+            <div class="row py-5">
+                
+                <div class="col-lg-2 col-md-3 col-sm-4 col-12 ">
+                    <a href="/home/listuser" class="btn btn-primary">
+                        <i class="fas fa-angle-double-left"></i>
+                        Trở lại danh sách
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

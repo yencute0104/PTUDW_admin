@@ -1,0 +1,134 @@
+
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div  class="row mb-2">
+        <div class="col-sm-9">
+          <h1>Thông tin sách</h1>
+        </div>
+        <div class="col-sm-3">
+            <!-- Navbar Search -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <div class="navbar-search-block">
+                  <form class="form-inline">
+                      <button class="btn btn-navbar" type="submit">
+                          <i class="fas fa-search"></i>
+                      </button>
+                      <input name="search" href="?catid={{catID}}&search={{nameSearch}}" class="form-control form-control-navbar"  placeholder="Tìm kiếm" aria-label="Search">
+                  </form>
+                </div>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+          <nav class="mainmenu__nav">
+            <a class="btn btn-primary" href="/home/listbook/addbook">
+                <i class="fas fa-plus-circle"></i>
+                Thêm sách
+            </a>
+          </nav>
+      </div>
+      <div class="col">
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-filter"></i>
+            {{nameCat}}
+          </button>
+          <div class="dropdown-menu">
+            {{#each category}}
+              <a type="submit" href="?catid={{_id}}&search={{nameSearch}}" class="dropdown-item" >{{catogory}}</a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table id="mytable" class="table table-bordred table-striped">
+              <thead>
+                  <th>Tên sách</th>
+                  <th>Tác giả</th>
+                  <th>Thể loại</th>
+                  <th>Giá bán</th>
+                  <th>Số lượng</th>
+                  <th>Bình luận</th>
+                  <th>Sửa</th>
+              </thead>
+              <tbody>
+                {{#each books}}
+                  <tr>
+                  <td>{{title}}</td>
+                  <td>{{author}}</td>
+                  <td>{{catogory}}</td>
+                  <td>{{basePrice}}</td>
+                  <td>{{storeNumber}}</td>
+                  <td><a href="/home/listbook/view_comment/{{_id}}" >Xem </a></td>
+                  <td><p data-placement="top" data-toggle="tooltip" title="Sửa"><a href="/home/listbook/update/{{_id}}" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-pencil"></span></a></p></td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+
+            <div class="clearfix"></div>
+            <nav aria-label="Page navigation example" style="..."> 
+            <ul class="pagination pull-right">
+              {{#isnt currentPage 1}}
+              <li>
+                  <a href="/home/listbook?page={{prevPage}}&catid={{catID}}&search={{nameSearch}}">
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+              </li>
+              {{/isnt}}
+
+              {{#if hasPreviousPage}}
+              <li>
+                  <a href="/home/listbook?page={{prevPage}}&catid={{catID}}&search={{nameSearch}}">
+                    {{prevPage}}
+                  </a>
+              </li>
+              {{/if}}
+
+              
+            
+              <li class="active">
+                  <a href="javascript:void(0)" tabindex="-1">
+                    {{currentPage}}
+                  </a>
+              </li>
+
+              {{#if hasNextPage}}
+              <li>
+                  <a type="submit" href="?page={{nextPage}}&catid={{catID}}&search={{nameSearch}}">
+                    {{nextPage}}
+                  </a>
+              </li>
+              {{/if}}
+
+              {{#gt lastPage currentPage}}
+              <li>
+                  <a href="/home/listbook?page={{nextPage}}&catid={{catID}}&search={{nameSearch}}" >
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+              </li>
+              {{/gt}}
+            </ul>
+            </nav>
+            <p class="d-flex flex-wrap justify-content-between">Số lượng: {{totalBooks}} sản phẩm </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</section>
+

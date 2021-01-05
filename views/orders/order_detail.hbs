@@ -1,0 +1,124 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div  class="row mb-2">
+            <div class="col-sm-9">
+                <h1>Thông tin đơn hàng</h1>
+            </div>
+           
+        </div>   
+        <div class="row"> </div>   
+    </div>
+</section>
+<section class="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                   <form enctype="multipart/form-data" method="post">
+                        <div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
+                            <div class="container pt--40 pb--55">                          
+                                <div class="col-lg-6 col-12">
+                                    <div class="customer_details product-thumbnail">
+                                        <h3>Địa chỉ nhận hàng</h3>
+                                        <div class="customar__field">
+                                            <div class="margin_between">
+                                                <div class="input_box space_between">
+                                                    <label>Họ tên: {{order.firstName}}  {{order.lastName}} </label>
+                                                </div>
+                                                <div class="input_box space_between">
+                                                    <label>Số điện thoại: {{order.phone}}</label>									
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <label>Địa chỉ: {{address}}</label>
+                                            </div>
+                                            <div>
+                                                <label>Trạng thái: <span style="color: red;">{{order.status}}</span></label>
+                                            </div>
+                                            <div class="row py-5">
+                                                {{#if waiting}}
+                                                <div class="col-lg-3 col-md-3 col-sm-4 col-12 ">
+                                                    <a href="/home/listorder/tick/{{order._id}}" class="btn btn-success">
+                                                    <i class="fas fa-check-square"></i>
+                                                        Duyệt đơn
+                                                    </a>                  
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-4 col-12">
+                                                    <a href="/home/listorder/cancel/{{order._id}}" class="btn btn-danger">
+                                                    <i class="fas fa-window-close"></i>
+                                                        Hủy đơn
+                                                    </a>
+                                                </div>
+                                                {{/if}}
+                                                {{#if delivering}}
+                                                <div class="col-lg-2 col-md-3 col-sm-4 col-12 ">
+                                                    <a href="/home/listorder/tick/{{order._id}}" class="btn btn-success">
+                                                    <i class="fas fa-check-square"></i>
+                                                        Đã giao
+                                                    </a>
+                                                </div>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12 md-mt-40 sm-mt-40">
+
+                                     <div class="table-responsive">
+                                        <table id="mytable" class="table table-bordred table-striped ">
+                                        <thead>
+                                            <th>Sản phẩm</th>
+                                            <th>Thành tiền</th>
+                                            
+                                        </thead>
+                                        <tbody>
+                                           {{#each order.cart.items}}
+                                            <tr>
+                                            <td>{{item.title}} x {{qty}}</td>
+                                            <td>{{price}} vnđ</td>                                           
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                        </table>
+                                         <div class="input_box space_between">
+                                            <label>Tổng số tiền: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{order.cart.totalPrice}} vnđ </label>
+                                        </div>
+                                        <div class="input_box space_between">
+                                            <label>Phí vận chuyển: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;30000 vnđ</label>									
+                                        </div>
+                                         <div class="input_box space_between">
+                                            <label>Phương thức thanh toán: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Thanh toán khi nhận hàng</label>									
+                                        </div>
+                                         <div class="input_box space_between">
+                                            <label><h4><b>Tổng đơn: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{order.totalOrder}} vnđ</b></h4></label>									
+                                        </div>
+                                       
+                                     </div>
+                                   
+                                    
+                                </div>                       
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>    
+            </div>
+           
+            <div class="row py-5">
+                
+                <div class="col-lg-2 col-md-3 col-sm-4 col-12 ">
+                    <a href="/home/listorder" class="btn btn-primary">
+                        <i class="fas fa-angle-double-left"></i>
+                        Trở lại danh sách
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+	

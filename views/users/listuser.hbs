@@ -1,0 +1,107 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div  class="row mb-2">
+        <div class="col-sm-9">
+          <h1>Thông tin sách</h1>
+        </div>
+        <div class="col-sm-3">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <div class="navbar-search-block">
+                  <form class="form-inline">
+                      <button class="btn btn-navbar" type="submit">
+                          <i class="fas fa-search"></i>
+                      </button>
+                      <input name="search" href="?search={{nameSearch}}" class="form-control form-control-navbar"  value ="{{nameSearch}}" placeholder="Tìm kiếm" aria-label="Search">
+                  </form>
+                </div>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="row">
+    
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table id="mytable" class="table table-bordred table-striped ">
+              <thead>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Số điện thoại</th>
+                  <th>Trạng thái</th>
+                  <th>Xem chi tiết</th>
+              </thead>
+              <tbody>
+                {{#each users}}
+                  <tr>
+                  <td>{{username}}</td>
+                  <td>{{email}}</td>
+                  <td>{{phone}}</td>
+                  <td>{{status}}</td>                 
+                  <td><p data-placement="top" data-toggle="tooltip" title="Xem"><a href="/home/listuser/view/{{_id}}" class="btn btn-primary btn-xs"  ><span class="glyphicon glyphicon-search"></span></a></p></td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+
+            <div class="clearfix"></div>
+            <nav aria-label="Page navigation example" style="..."> 
+            <ul class="pagination pull-right">
+              {{#isnt currentPage 1}}
+              <li>
+                  <a href="/home/listuser?page={{prevPage}}&search={{nameSearch}}">
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+              </li>
+              {{/isnt}}
+
+              {{#if hasPreviousPage}}
+              <li>
+                  <a href="/home/listuser?page={{prevPage}}&search={{nameSearch}}">
+                    {{prevPage}}
+                  </a>
+              </li>
+              {{/if}}
+
+              
+            
+              <li class="active">
+                  <a href="javascript:void(0)" tabindex="-1">
+                    {{currentPage}}
+                  </a>
+              </li>
+
+              {{#if hasNextPage}}
+              <li>
+                  <a type="submit" href="?page={{nextPage}}&search={{nameSearch}}">
+                    {{nextPage}}
+                  </a>
+              </li>
+              {{/if}}
+
+              {{#gt lastPage currentPage}}
+              <li>
+                  <a href="/home/listuser?page={{nextPage}}&search={{nameSearch}}" >
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+              </li>
+              {{/gt}}
+            </ul>
+            </nav>
+            <p class="d-flex flex-wrap justify-content-between">Số lượng: {{totalUsers}} người dùng </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</section>
+

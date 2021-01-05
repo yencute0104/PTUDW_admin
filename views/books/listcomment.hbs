@@ -1,0 +1,125 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div  class="row mb-2">
+            <div class="col-sm-9">
+                <h1>Danh sách bình luận</h1>
+            </div>
+           
+        </div>   
+        <div class="row"> </div>   
+    </div>
+</section>
+<section class="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">                  
+                        <div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
+                            <div class="container">  
+                                                                               
+                            {{#gt totalComments 0}}
+                                     <div class="mt-3 row"> 
+                                        <p>Có tất cả {{totalComments}} bình luận</p>
+                                     </div>										                               										
+                                    {{#each comment}}
+                                    <div class="mt-3 row">   
+                                        <div>
+                                            <a href="/home/listbook/delete_comment/{{bookID}}/{{@key}}" type="button" class="btn btn-danger" title="Xóa bình luận"><i class="far fa-trash-alt"></i> Xóa</a>
+                                        </div>              
+                                        <div class="w-100 col">                                           
+                                                <label for="exampleFormControlTextarea1" class="form-label"><strong>{{nickname}}</strong> </label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" >{{content}}</textarea>
+                                                {{!-- <p class="c-badge text-justify comment-text mb-0 "></p> --}}                                                               
+                                        </div>
+                                                
+                                        																							
+                                    </div>	
+                                    {{/each}}	
+                                    <div class="table-responsive">   
+                                        <nav aria-label="Page navigation example" style="..."> 
+                                        <ul class="pagination pull-right">
+                                        {{#isnt current 1}}
+                                        <li>
+                                            <a href="/home/listbook/view_comment/{{bookID}}?page={{prevPage}}">
+                                                <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                                            </a>
+                                        </li>
+                                        {{/isnt}}
+
+                                        {{#if hasPreviousPage}}
+                                        <li>
+                                            <a href="/home/listbook/view_comment/{{bookID}}?page={{prevPage}}">
+                                                {{prevPage}}
+                                            </a>
+                                        </li>
+                                        {{/if}}
+
+                                        
+                                        
+                                        <li class="active">
+                                            <a href="javascript:void(0)" tabindex="-1">
+                                                {{current}}
+                                            </a>
+                                        </li>
+
+                                        {{#if hasNextPage}}
+                                        <li>
+                                            <a type="submit" href="/home/listbook/view_comment/{{bookID}}?page={{nextPage}}">
+                                                {{nextPage}}
+                                            </a>
+                                        </li>
+                                        {{/if}}
+
+                                        {{#gt lastPage current}}
+                                        <li>
+                                            <a href="/home/listbook/view_comment/{{bookID}}?page={{nextPage}}" >
+                                                <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                                            </a>
+                                        </li>
+                                        {{/gt}}
+                                        </ul>
+                                        </nav>
+                                    </div>									
+                               						                          
+                            {{else}}
+                                <p>Không có bình luận nào</p>
+                            {{/gt}}
+
+                          
+                            </div> 
+                        </div>
+                        
+                </div>    
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <form method="POST">
+                    <div class="page-shop-sidebar bg--white section-padding--lg">
+                        <div class="container">     
+                            <div class="review_form_field">
+                                <div class="input__box mt-5 wt-70">
+                                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Bình luận của quản trị viên</strong> </label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Nhập bình luận ở đây" name="content"></textarea>
+                                </div>
+                                <div class="review-form-actions mt-3">
+                                    <button class="btn btn-success" type="submit" >Gửi bình luận</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row py-5">                
+                <div class="col-lg-2 col-md-3 col-sm-4 col-12 ">
+                    <a href="/home/listbook" class="btn btn-primary">
+                        <i class="fas fa-angle-double-left"></i>
+                        Trở lại danh sách
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
