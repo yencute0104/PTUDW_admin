@@ -39,7 +39,11 @@
                         <div class="row">
                             <div class="col-lg-12 form-group">
                                 <label><b>Nội dung (*)</b></label>
-                                <textarea class="form-control " id="exampleFormControlInput1" name="txtDetail"required>{{book.detail}}</textarea>                   
+                                {{!-- <textarea class="form-control " id="exampleFormControlInput1" name="txtDetail"required>{{book.detail}}</textarea>--}}
+                                <textarea id="editor" cols="30"  name="txtDetail" rows="10"  required>{{{book.detail}}}</textarea>
+                                <br>
+                                        
+                                <br>
                             </div>
                         </div>
                         <div class="row">

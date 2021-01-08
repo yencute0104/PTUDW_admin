@@ -29,6 +29,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
   	<link rel="stylesheet" href="/plugins/jsgrid/jsgrid.min.css">   
     <link rel="stylesheet" href="/plugins/jsgrid/jsgrid-theme.min.css">
+	 <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
   
 </head>
 
@@ -158,6 +159,16 @@
 	<!-- jQuery -->
 	<script src="/plugins/jquery/jquery.min.js"></script>
 
+	<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+
+	<script>
+		$(function () {
+			$("#editor").shieldEditor({
+				height: 260
+			
+			});
+		})
+	</script>
 	<script>
 			function readURL(input) {
 						if (input.files && input.files[0]) {
