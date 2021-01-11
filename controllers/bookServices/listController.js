@@ -255,6 +255,7 @@ exports.update = async (req, res, next) => {
                
                 else 
                 {
+                    consosle("3");
                     bookModel.post_update(fields,req.params.id).then(()=>{
                         res.redirect('../../listbook');
                         });
@@ -267,6 +268,7 @@ exports.update = async (req, res, next) => {
             if (listCover.length > 0)
             {
                   // phát hiện 1 file không phải ảnh
+                  console.log("0");
                   for (var index in listCover)
                   if (imageType.indexOf(listCover[index].type) === -1 )
                       return res.render('books/updatebook',{
@@ -294,6 +296,7 @@ exports.update = async (req, res, next) => {
                
             else if (listCover.size > 0)
             {
+                console.log("1");
                 if (imageType.indexOf(listCover.type) === -1 )
                         return res.render('books/updatebook',{
                             title: "Chỉnh sửa ", 
@@ -311,6 +314,7 @@ exports.update = async (req, res, next) => {
            
             else 
             {
+                console.log("2");
                 bookModel.post_update(fields,req.params.id).then(()=>{
                     res.redirect('../../listbook');
                     });

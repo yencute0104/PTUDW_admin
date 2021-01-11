@@ -77,8 +77,8 @@ exports.post_add = async (req) => {
 
 exports.post_update = async (req,id) => {
     //const booksCollection = db().collection('Books');
-    const {txtTitle, txtImagePath, txtDescription, txtDetail, txtOldPrice, txtBasePrice, 
-        txtAuthor, txtCategory, txtImageList, txtStatus, txtStoreNumber} = req; 
+    const {txtTitle, txtDescription, txtDetail, txtOldPrice, txtBasePrice, 
+        txtAuthor, txtCategory, txtStatus, txtStoreNumber} = req; 
     const hasCategory = await categoryCollection.findOne({catogory: txtCategory});
 
     if (!hasCategory)
@@ -91,8 +91,6 @@ exports.post_update = async (req,id) => {
     await booksCollection.updateOne(
         { _id: ObjectId(id) },
         {   
-            cover: txtImagePath, 
-            listCover: txtImageList,
             title: txtTitle, 
             descript: txtDescription, 
             detail: txtDetail, 
