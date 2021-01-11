@@ -255,7 +255,7 @@ exports.update = async (req, res, next) => {
                
                 else 
                 {
-                    consosle("3");
+                    console.log("3");
                     bookModel.post_update(fields,req.params.id).then(()=>{
                         res.redirect('../../listbook');
                         });
