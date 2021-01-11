@@ -229,7 +229,7 @@ exports.update = async (req, res, next) => {
                                 if (listCover.length === arr.length)
                                 {
                                     fields.txtImageList = arr;
-                                    bookModel.post_update(fields,req.params.id).then(()=>{
+                                    bookModel.post_update_2(fields,req.params.id).then(()=>{
                                         res.redirect('../../listbook');
                                         });
                                 }
@@ -247,7 +247,7 @@ exports.update = async (req, res, next) => {
                         });
                     cloudinary.uploader.upload(listCover.path, function(err, result){
                         fields.txtImageList = result.url;
-                        bookModel.post_update(fields,req.params.id).then(()=>{
+                        bookModel.post_update_2(fields,req.params.id).then(()=>{
                             res.redirect('../../listbook');
                             });
                     })
@@ -256,7 +256,7 @@ exports.update = async (req, res, next) => {
                 else 
                 {
                     console.log("3");
-                    bookModel.post_update(fields,req.params.id).then(()=>{
+                    bookModel.post_update_1(fields,req.params.id).then(()=>{
                         res.redirect('../../listbook');
                         });
                 }
@@ -286,7 +286,7 @@ exports.update = async (req, res, next) => {
                                   if (listCover.length === arr.length)
                                   {
                                       fields.txtImageList = arr;
-                                      bookModel.post_update(fields,req.params.id).then(()=>{
+                                      bookModel.post_update_2(fields,req.params.id).then(()=>{
                                           res.redirect('../../listbook');
                                           });
                                   }
@@ -306,7 +306,7 @@ exports.update = async (req, res, next) => {
 
                 cloudinary.uploader.upload(listCover.path, function(err, result){
                     fields.txtImageList = result.url;
-                    bookModel.post_update(fields,req.params.id).then(()=>{
+                    bookModel.post_update_2(fields,req.params.id).then(()=>{
                         res.redirect('../../listbook');
                         });
                 })
@@ -315,7 +315,7 @@ exports.update = async (req, res, next) => {
             else 
             {
                 console.log("2");
-                bookModel.post_update(fields,req.params.id).then(()=>{
+                bookModel.post_update_1(fields,req.params.id).then(()=>{
                     res.redirect('../../listbook');
                     });
             }

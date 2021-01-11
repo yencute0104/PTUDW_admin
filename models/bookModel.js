@@ -74,8 +74,8 @@ exports.post_add = async (req) => {
         saleNumber: 0
     })
 };
-
-exports.post_update = async (req,id) => {
+// không thay đổi listcover
+exports.post_update_1 = async (req,id) => {
     //const booksCollection = db().collection('Books');
     const {txtTitle, txtImagePath, txtDescription, txtDetail, txtOldPrice, txtBasePrice, 
         txtAuthor, txtCategory, txtStatus, txtStoreNumber} = req; 
@@ -93,6 +93,38 @@ exports.post_update = async (req,id) => {
         {   
             title: txtTitle, 
             cover: txtImagePath,
+            descript: txtDescription, 
+            detail: txtDetail, 
+            oldPrice: txtOldPrice,
+            catID: ObjectId (catid._id),
+            author: txtAuthor,
+            catogory: txtCategory,
+            status: txtStatus,
+            basePrice: parseInt(txtBasePrice), 
+            storeNumber: txtStoreNumber,
+        })
+};
+
+// thay đổi listcover
+exports.post_update_2 = async (req,id) => {
+    //const booksCollection = db().collection('Books');
+    const {txtTitle, txtImagePath, txtImageList, txtDescription, txtDetail, txtOldPrice, txtBasePrice, 
+        txtAuthor, txtCategory, txtStatus, txtStoreNumber} = req; 
+    const hasCategory = await categoryCollection.findOne({catogory: txtCategory});
+
+    if (!hasCategory)
+    {
+        await categoryCollection.create({catogory: txtCategory});
+    }
+
+    const catid = await categoryCollection.findOne({catogory: txtCategory});
+    // SQL Query > Insert Data
+    await booksCollection.updateOne(
+        { _id: ObjectId(id) },
+        {   
+            title: txtTitle, 
+            cover: txtImagePath,
+            listCover: txtImageList,
             descript: txtDescription, 
             detail: txtDetail, 
             oldPrice: txtOldPrice,
